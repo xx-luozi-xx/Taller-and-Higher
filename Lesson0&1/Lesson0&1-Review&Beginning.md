@@ -152,7 +152,7 @@ $$
 
 **定理1.3**(有理数乘法的交换律)：设$p, q$是两个有理数，那么：
 $$
-p\times q = p \times q
+p\times q = q \times p
 $$
 
 <div style="page-break-after: always;"></div>
