@@ -323,6 +323,66 @@ P\leftrightarrow P\\
 $$
 
 &emsp;**证明：**
+&emsp;&emsp;(1)
+&emsp;&emsp;由**公理2.4** $\text{True}$立马得证。
+&emsp;&emsp;下证 $\neg\text{True} \leftrightarrow \text{False}$
+|编号|公式|原因|
+|-|-|-|
+|$1$|$\text{False}$|假设|
+|$2$|$\neg\text{True}$|对(1)使用**公理2.7**|
+|$3$|$\{\text{False}\}\vdash\neg\text{True}$|总结(1)到(2)|
+|$4$|$\text{False}\rightarrow\neg\text{True}$|对(3)使用**公理2.11**|
+|$5$|$\neg\text{True}$|假设|
+|$6$|$\text{True}\rightarrow\text{False}$|对(5)使用**公理2.2**|
+|$7$|$\text{True}$|引入已证永真式(也可以使用公理)|
+|$8$|$\text{False}$|对(6)(7)使用**公理2.10**|
+|$9$|$\{\neg\text{True}\}\vdash\text{False}$|总结(5)到(8)|
+|$10$|$\neg\text{True}\rightarrow\text{False}$|对(9)使用**公理2.11**|
+|$11$|$\neg\text{True}\leftrightarrow\text{False}$|对(4)和(10)使用**公理2.8**|
+
+&emsp;&emsp;$\neg\text{False} \leftrightarrow \text{True}$ 的证明留作练习。
+
+|编号|公式|原因|
+|-|-|-|
+|$1$|$\neg\text{False}$|假设|
+|$2$|$\text{True}$|引入已证永真式|
+|$3$|$\{\neg\text{False}\}\vdash\text{True}$|总结(1)到(2)|
+|$4$|$\neg\text{False}\rightarrow\text{True}$|对(3)使用**公理2.11**|
+|$5$|$\text{True}$|假设|
+|$6$|$\text{False}$|假设|
+|$7$|$X$|对(6)使用**公理2.7**|
+|$8$|$\{\text{False}\}\vdash X$|总结(6)到(7)|
+|$9$|$\text{False}\rightarrow X$|对(8)使用**公理2.11**|
+|$10$|$\text{False}$|假设|
+|$11$|$\neg X$|对(10)使用**公理2.7**|
+|$12$|$\{\text{False}\}\vdash \neg X$|总结(10)到(11)|
+|$13$|$\text{False}\rightarrow \neg X$|对(12)使用**公理2.11**|
+|$14$|$\neg\text{False}$|对(9)(12)使用**公理2.1**|
+|$15$|$\{\text{True}\}\vdash\neg\text{False}$|总结(5)到(14)|
+|$16$|$\text{True}\rightarrow\neg\text{False}$|对(15)使用**公理2.11**|
+|$17$|$\neg\text{False}\leftrightarrow\text{True}$|对(4)(16)使用**公理2.8**|
+
+
+&emsp;&emsp;(2)我们证明$\neg\neg P\leftrightarrow P$ 前两个留作练习
+
+&emsp;&emsp;证$P\rightarrow P$ 和 $P\leftrightarrow P$
+|编号|公式|原因|
+|-|-|-|
+|$1$|$P$|假设|
+|$2$|$P\vee X$|对(1)使用**公理2.6**|
+|$3$|$P\wedge (P\vee X)$|对(1)(2)使用**公理2.4**|
+|$4$|$P$|对(3)使用**公理2.5**|
+|$5$|$\{P\}\vdash P$|总结(1)到(4)|
+|$6$|$P\rightarrow P$|对(5)使用**公理2.11**|
+
+实际上直接总结(1)到(1)也可以得到$\{P\}\vdash P$。
+|编号|公式|原因|
+|-|-|-|
+|$1$|$P\rightarrow P$|引入已证永真式|
+|$2$|$P\leftrightarrow P$|对(1)(1)使用**公理2.8**|
+
+
+
 
 **定理2.3**(代入原则)设$a, b, A$是命题公式, 且$a=b$, $a$是$A$的子公式, 那么用$b$在$A$中替换$a$, 得到公式B后, $A=B$。
 &emsp;**证明：**(不做要求，置于文末)
@@ -333,46 +393,51 @@ $$
 &emsp;&emsp;将代入原则结合**定理2.1**我们发现公式等价符$=$可以用来进行公式间的运算了，为了方便运算，我们来证明一些关于联结词的等价公式。
 
 **定理2.4**(常用等价公式)
-(1)双重否定律$$
+(1)零和一$$
+\neg \text{True} = \text{False}\\
+\neg \text{False} = \text{True}\\
+$$(2)双重否定律$$
 \neg\neg P=P
-$$(2)结合律$$
+$$(3)结合律$$
 (P\vee Q)\vee R = P\vee (Q\vee R)\\ 
 (P\wedge Q)\wedge R = P\wedge (Q\wedge R)\\ 
 (P\leftrightarrow Q)\leftrightarrow R = P\leftrightarrow (Q\leftrightarrow R)\\ 
-$$(3)交换律$$
+$$(4)交换律$$
 P\vee Q = Q\vee P\\
 P\wedge Q = Q\wedge P\\
 P\leftrightarrow Q = Q\leftrightarrow P
-$$(4)分配律$$
+$$(5)分配律$$
 P\wedge(Q\vee R) = (P\wedge Q)\vee(P\wedge R)\\
 P\vee(Q\wedge R) = (P\vee Q)\wedge(P\vee R)
-$$(5)幂等律$$
+$$(6)幂等律$$
 P\vee P = P\\
 P\wedge P = P
-$$(6)吸收律$$
+$$(7)吸收律$$
 P\vee(P\wedge Q) = P\\
 P\wedge(P\vee Q) = P
-$$(7)反演律(也叫De Morgan定律，这是一个非常有用的定理)$$
+$$(8)反演律(也叫De Morgan定律，这是一个非常有用的定理)$$
 \neg(P\vee Q) = \neg P \wedge Q\\
 \neg(P\wedge Q) = \neg P \vee Q
-$$(8)单位律$$
+$$(9)单位律$$
 P\vee \text{False} = P\\
 P\wedge \text{True} = P\\
-$$(9)零律$$
+$$(10)零律$$
 P\vee \text{True} = \text{True}\\
 P\wedge \text{False} = \text{False}\\
-$$(10)补律$$
+$$(11)补律$$
 P\vee \neg P = \text{True}\\
 P\wedge \neg P = \text{False}\\
-$$(11)蕴含的析合性质$$
+$$(12)蕴含的析合性质$$
 P\rightarrow Q = \neg P \vee Q
-$$(12)逆否命题$$
+$$(13)逆否命题$$
 P\rightarrow Q = \neg Q \rightarrow \neg P
-$$(13)分类讨论实质(\\todo举例奇数偶数)$$
+$$(14)分类讨论实质(\\todo举例奇数偶数)$$
 (P \rightarrow R) \wedge (Q \rightarrow R) = (P\vee Q)\rightarrow R
-$$(14)等价的析合性质$$
+$$(15)等价的析合性质$$
 P \leftrightarrow Q = (P\wedge Q)\vee (\neg P \wedge \neg Q)\\
 P \leftrightarrow Q = (\neg P\vee Q)\wedge ( P \vee \neg Q)
+$$(16)等价的否$$
+P \leftrightarrow Q = \neg P \leftrightarrow \neg Q 
 $$
 
 #### 2.1.6 命题的证明
