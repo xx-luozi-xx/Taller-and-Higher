@@ -49,7 +49,7 @@
 &emsp;&emsp;无论$P$和$Q$换成其他什么命题, 在因果关系$P \rightarrow Q$为真的情况下, 只要$P$为真, 那么$Q$就是真命题。
 &emsp;&emsp;在习惯上, 我们会使用一个大写的英文字母来表示命题, 例如：用$B$表示命题“北京是中国的首都”、用$R$表示“雪是黑色的”等。在这里由于我们只重点关注命题间的关系（各种各样的复合和因果）, 而尽量忽略命题本身, 于是上面三条命题中的$P$,$Q$可以换成任何命题, 你可以将一个真命题放到$P$中, 也可以将一个假命题放到$P$中。
 &emsp;&emsp;这时命题中的每一个字母称为**命题变元**或**变量**, 我们可以对每一个变量赋值(取值)$\text{True}$或者$\text{False}$(真或假), 对某一命题中的所有变量都进行赋值的一个方案称为一个**指派**。也就是说, 在这里$P$和$Q$仅仅只是一个变量, 就如同解方程中的$x$一般, 不过每一个命题变量只能取值True或者False意味着真或者假, 别无其它。
-&emsp;&emsp;例如 $\text{True} \rightarrow \text{True}$, $\text{Flase} \rightarrow \text{True}$ 都是**命题2.1**的指派。
+&emsp;&emsp;例如 $\text{True} \rightarrow \text{True}$, $\text{False} \rightarrow \text{True}$ 都是**命题2.1**的指派。
 
 #### 2.1.2 命题的运算 —— 联结词
 &emsp;&emsp;上面我们已经简单的接触到命题之间的复合结构了, 在这里我们将更加详尽的研究命题之间的因果关系。
@@ -76,7 +76,7 @@
 |$P$|$Q$     | $P\vee Q$     |
 |-| -------- | -------- | 
 | False | False | False | 
-| Flase | True | True | 
+| False | True | True | 
 | True | False | True | 
 | True | True | True | 
 
@@ -93,7 +93,7 @@
 |$P$|$Q$     | $P\wedge Q$     |
 |-| -------- | -------- | 
 | False | False | False | 
-| Flase | True | False | 
+| False | True | False | 
 | True | False | False | 
 | True | True | True | 
 
@@ -108,7 +108,7 @@
 |$P$|$Q$     | $P\rightarrow Q$     |
 |-| -------- | -------- | 
 | False | False | True | 
-| Flase | True | True | 
+| False | True | True | 
 | True | False | False | 
 | True | True | True | 
 
@@ -124,7 +124,7 @@
 |$P$|$Q$     | $P\leftrightarrow Q$     |
 |-| -------- | -------- | 
 | False | False | True | 
-| Flase | True | False | 
+| False | True | False | 
 | True | False | False | 
 | True | True | True | 
 
@@ -200,8 +200,8 @@ $$
 &emsp;&emsp;这两条公理表明了合取的属性, 即“两者都为真”。推导的目标是从已知真命题得到新的真命题，对于第一条，我们总可以从虚无中推导出$\text{True}$, 因为$\text{True}$本就是真的。对于第二条, 两者同时为真时, 前者肯定为真, 后者也肯定为真。
 
 **公理2.6**(析取介入)$\{ p\} \models (p \vee q)$, $\{ q\} \models (p \vee q)$
-**公理2.7**(析取消除)$\{p \vee q, p \rightarrow r, q \rightarrow r\} \models r$, $\{ \text{Flase}\}\models r$
-&emsp;&emsp;这两条公理表明了析取的属性, 即“两者至少一个为真”。对于第二条, $p$,$q$只要有一个为真, 那么$r$就为真。后半部分说明：如果虚假为真，则任何命题$r$为真。这句话表明了$\text{True}$和$\text{Flase}$是完全对立的，虚假永不为真；如果虚假为真，那么$\text{True}$和$\text{Flase}$等价，为我们讨论的一切命题都没有意义，都只会有唯一的一种指派(因为$\text{True}$和$\text{Flase}$是一样的), 这种情况下, 真就是假, 假就是真, 那么所有命题就都是真的了(也可以都是假, 反正没区别)。所以我们永远不允许推导出$\text{False}$(事实上我们的公理系统保证了这一点)。
+**公理2.7**(析取消除)$\{p \vee q, p \rightarrow r, q \rightarrow r\} \models r$, $\{ \text{False}\}\models r$
+&emsp;&emsp;这两条公理表明了析取的属性, 即“两者至少一个为真”。对于第二条, $p$,$q$只要有一个为真, 那么$r$就为真。后半部分说明：如果虚假为真，则任何命题$r$为真。这句话表明了$\text{True}$和$\text{False}$是完全对立的，虚假永不为真；如果虚假为真，那么$\text{True}$和$\text{False}$等价，为我们讨论的一切命题都没有意义，都只会有唯一的一种指派(因为$\text{True}$和$\text{False}$是一样的), 这种情况下, 真就是假, 假就是真, 那么所有命题就都是真的了(也可以都是假, 反正没区别)。所以我们永远不允许推导出$\text{False}$(事实上我们的公理系统保证了这一点)。
 
 **公理2.8**(等价介入)$\{p \rightarrow q, q \rightarrow p\} \models (p \leftrightarrow q)$
 **公理2.9**(等价消除)$\{p \leftrightarrow q \} \models (p \rightarrow q)$,$\{p \leftrightarrow q \} \models (q \rightarrow p)$ 
@@ -243,6 +243,8 @@ $$
 |$14$|$(A \leftrightarrow A)\leftrightarrow\text{Ture}$|对(4)(13)使用**公理2.8**|
 
 &emsp;&emsp;好了，现在每个公式等价于自己了。
+&emsp;&emsp;注意，证明过程中的每一次**假设**会对应到一次**总结**，**总结**之前可以把假设作为真命题，**总结**时表明由假设得出的结论，从而得到假设命题蕴含结论命题的一个蕴含命题，这个命题就是我们得到的一个真命题，**但是总结过后不能再使用该假设**。如假设$P$，得到了$Q$，那么$P\rightarrow Q$是我们得到的真命题，但是$P$本身是否为真是未知的。
+
 
 &emsp;&emsp;(2)假设$A=B$成立，我们需要证$B=A$成立
 &emsp;&emsp;由**定义2.9**和**定义2.7**：我们只需假设$(A\leftrightarrow B)\leftrightarrow \text{True}$为真，推理出$(B\leftrightarrow A)\leftrightarrow \text{True}$为真即可
@@ -306,13 +308,74 @@ $$
 $\square$
 </div>
 
-**定理2.2**(代入原则)设$a, b, A$是命题公式, 且$a=b$, $a$是$A$的子公式, 那么用$b$在$A$中替换$a$, 得到公式B后, $A=B$。
+
+&emsp;&emsp;我们再来证明一些永真式，这样我们可以在之后的证明中直接引入他们，从而省去一些工作。
+
+**定理2.2**(常用永真式)
+(1)$$
+\text{True}\\
+\neg\text{True} \leftrightarrow \text{False}\\
+\neg\text{False} \leftrightarrow \text{True}
+$$(2)$$
+P\rightarrow P\\
+P\leftrightarrow P\\
+\neg\neg P\leftrightarrow P
+$$
+
+&emsp;**证明：**
+
+**定理2.3**(代入原则)设$a, b, A$是命题公式, 且$a=b$, $a$是$A$的子公式, 那么用$b$在$A$中替换$a$, 得到公式B后, $A=B$。
 &emsp;**证明：**(不做要求，置于文末)
 
+&emsp;&emsp;例如: $A:=P\vee a, a=b, B:=P\vee b$那么$A=B$。其中$:=$为**定义符**，用于区别于公式等价符$=$。$A:=P\vee a$实际上是在说$A$其实就是$P\vee a$本身，而不是这两个式子等价。
+&emsp;&emsp;将代入原则结合**定理2.1**我们发现公式等价符$=$可以用来进行公式间的运算了，为了方便运算，我们来证明一些关于联结词的等价公式。
+
+**定理2.4**(常用等价公式)
+(1)双重否定律$$
+\neg\neg P=P
+$$(2)结合律$$
+(P\vee Q)\vee R = P\vee (Q\vee R)\\ 
+(P\wedge Q)\wedge R = P\wedge (Q\wedge R)\\ 
+(P\leftrightarrow Q)\leftrightarrow R = P\leftrightarrow (Q\leftrightarrow R)\\ 
+$$(3)交换律$$
+P\vee Q = Q\vee P\\
+P\wedge Q = Q\wedge P\\
+P\leftrightarrow Q = Q\leftrightarrow P
+$$(4)分配律$$
+P\wedge(Q\vee R) = (P\wedge Q)\vee(P\wedge R)\\
+P\vee(Q\wedge R) = (P\vee Q)\wedge(P\vee R)
+$$(5)幂等律$$
+P\vee P = P\\
+P\wedge P = P
+$$(6)吸收律$$
+P\vee(P\wedge Q) = P\\
+P\wedge(P\vee Q) = P
+$$(7)反演律(也叫De Morgan定律，这是一个非常有用的定理)$$
+\neg(P\vee Q) = \neg P \wedge Q\\
+\neg(P\wedge Q) = \neg P \vee Q
+$$(8)单位律$$
+P\vee \text{False} = P\\
+P\wedge \text{True} = P\\
+$$(9)零律$$
+P\vee \text{True} = \text{True}\\
+P\wedge \text{False} = \text{False}\\
+$$(10)补律$$
+P\vee \neg P = \text{True}\\
+P\wedge \neg P = \text{False}\\
+$$(11)蕴含的析合性质$$
+P\rightarrow Q = \neg P \vee Q
+$$(12)逆否命题$$
+P\rightarrow Q = \neg Q \rightarrow \neg P
+$$(13)分类讨论实质(\\todo举例奇数偶数)$$
+(P \rightarrow R) \wedge (Q \rightarrow R) = (P\vee Q)\rightarrow R
+$$(14)等价的析合性质$$
+P \leftrightarrow Q = (P\wedge Q)\vee (\neg P \wedge \neg Q)\\
+P \leftrightarrow Q = (\neg P\vee Q)\wedge ( P \vee \neg Q)
+$$
 
 #### 2.1.6 命题的证明
 
-
+//todo 一帮人有人撒谎了
 
 #### 2.1.2 谓词逻辑
 
@@ -351,13 +414,11 @@ $\square$
 
 ## 思考习题
 
-**习题1.1**：证明命题：53是奇数。
+**习题2.1**：证明**定理2.2**中留作练习的几个永真式。
 
-**习题1.2**：证明：有理数满足乘法结合律。
+**习题2.2**：证明**定理2.4**中留作练习的几个等价公式。
 
-**习题1.3**：根据欧几里得公理系统提供的公设和公理, 证明《几何原本》的第一条命题：
-&emsp;**《几何原本》第一卷 几何基础**
-&emsp;**命题I.1：** 已知一条线段, 可以作一个等边三角形。`（等边三角形的三条边长度相同。）`
+**习题2.3**：又是说谎问题
 
 
 
