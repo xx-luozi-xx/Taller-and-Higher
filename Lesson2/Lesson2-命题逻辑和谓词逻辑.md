@@ -174,7 +174,7 @@ $$
 &emsp;&emsp;在这里, 我们将注意力放到一些特殊的公式上：
 
 **定义2.7**(永真式): 设$A$为一个命题公式($A$可能非常复杂), 如果$A$在所有指派下均为真, 即$A\leftrightarrow \text{True}$为真命题, 那么称$A$为永真式。有些书籍也将永真式称为重言式。$\text{True}$是最简单的永真式。
-**定义2.8**(永假式): 设$A$为一个命题公式($A$可能非常复杂), 如果$A$在所有指派下均为假, 即$\neg (A\leftrightarrow \text{True})$为真命题,  那么称$A$为永假式。有些书籍也将永真式称为矛盾式。$\text{False}$是最简单的永假式。
+**定义2.8**(永假式): 设$A$为一个命题公式($A$可能非常复杂), 如果$A$在所有指派下均为假, 即$\neg (A\leftrightarrow \text{True})$为真命题,  那么称$A$为永假式。有些书籍也将永假式称为矛盾式。$\text{False}$是最简单的永假式。
 **定义2.9**(等价公式): 设$A, B$是两个命题公式(可能很复杂), 如果$A \leftrightarrow B$为永真式, 则称$A, B$互为等价公式, 记$A = B$。
 **定义2.10**(子公式): 设$a, A$是命题公式, 如果$a$是$A$的一部分, 则称$a$是$A$的子公式。例如：$P$和$P\rightarrow Q$都是$P\rightarrow (P\rightarrow Q) $的子公式, 每个公式都是自己的子公式。
 
@@ -237,7 +237,7 @@ $$
 |$8$|$A$|对(7)使用**公理2.5**|
 |$9$|$\{A\}\vdash A$|总结(6)到(8)|
 |$10$|$A\rightarrow A$|对(9)使用**公理2.11**|
-|$11$|$A\leftrightarrow A$|对(9)和(9)使用**公理2.8**|
+|$11$|$A\leftrightarrow A$|对(10)和(10)使用**公理2.8**|
 |$12$|$\{\text{True}\}\vdash(A\leftrightarrow A)$|总结(5)到(11)|
 |$13$|$\text{True}\rightarrow(A\leftrightarrow A)$|对(12)使用**公理2.11**|
 |$14$|$(A \leftrightarrow A)\leftrightarrow\text{Ture}$|对(4)(13)使用**公理2.8**|
@@ -266,10 +266,48 @@ $$
 
 &emsp;&emsp;好了，现在两个等价公式交换后还等价了。
 
+&emsp;&emsp;(3)由**定义2.9**和**定义2.7**：我们只需假设$(A\leftrightarrow B)\leftrightarrow \text{True}$为真，以及$(B\leftrightarrow C)\leftrightarrow \text{True}$为真，推理出$(A\leftrightarrow C)\leftrightarrow \text{True}$为真即可
 
+|编号|公式|原因|
+|-|-|-|
+|$1$|$(A\leftrightarrow B)\leftrightarrow \text{True}$|假设|
+|$2$|$(B\leftrightarrow C)\leftrightarrow \text{True}$|假设|
+|$3$|$\text{True}$|假设|
+|$4$|$\text{True}\rightarrow(A\leftrightarrow B) $|对(1)使用**公理2.9**|
+|$5$|$\text{True}\rightarrow(B\leftrightarrow C) $|对(2)使用**公理2.9**|
+|$6$|$A\leftrightarrow B$|对(3)(4)使用**公理2.10**|
+|$7$|$B\leftrightarrow C$|对(3)(5)使用**公理2.10**|
+|$8$|$A$|假设|
+|$9$|$A\rightarrow B$|对(6)使用**公理2.9**|
+|$10$|$B$|对(8)(9)使用**公理2.10**|
+|$11$|$B\rightarrow C$|对(7)使用**公理2.9**|
+|$12$|$C$|对(10)(11)使用**公理2.10**|
+|$13$|$\{A\}\vdash C$|总结(8)到(12)|
+|$14$|$A\rightarrow C$|对(13)使用**公理2.11**|
+|$15$|$C$|假设|
+|$16$|$C\rightarrow B$|对(7)使用**公理2.9**|
+|$17$|$B$|对(15)(16)使用**公理2.10**|
+|$18$|$B\rightarrow A$|对(6)使用**公理2.9**|
+|$19$|$A$|对(17)(18)使用**公理2.10**|
+|$20$|$\{C\}\vdash A$|总结(15)到(19)|
+|$21$|$C\rightarrow A$|对(20)使用**公理2.11**|
+|$22$|$A\leftrightarrow C$|对(14)(21)使用**公理2.8**|
+|$23$|$\{\text{True}\}\vdash (A\leftrightarrow C)$|总结(3)到(22)|
+|$24$|$\text{True}\rightarrow(A\leftrightarrow C)$|对(23)使用**公理2.11**|
+|$25$|$A\leftrightarrow C$|假设|
+|$26$|$\text{True}$|对{}使用**公理2.4**|
+|$27$|$\{A\leftrightarrow C\}\vdash\text{True}$|总结(25)到(26)|
+|$28$|$(A\leftrightarrow C)\rightarrow\text{True}$|对(27)使用**公理2.11**|
+|$29$|$(A\leftrightarrow C)\leftrightarrow\text{True}$|对(24)(28)使用**公理2.8**|
+|$30$|$\{(A\leftrightarrow B)\leftrightarrow \text{True}, (B\leftrightarrow C)\leftrightarrow \text{True}\}\vdash(A\leftrightarrow C)\leftrightarrow\text{True}$|总结(1)到(29)|
+
+<div style="text-align: right;">
+
+$\square$
+</div>
 
 **定理2.2**(代入原则)设$a, b, A$是命题公式, 且$a=b$, $a$是$A$的子公式, 那么用$b$在$A$中替换$a$, 得到公式B后, $A=B$。
-&emsp;**证明：**
+&emsp;**证明：**(不做要求，置于文末)
 
 
 #### 2.1.6 命题的证明
