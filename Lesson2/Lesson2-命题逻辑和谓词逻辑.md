@@ -318,6 +318,8 @@ $\square$
 \neg\text{False} \leftrightarrow \text{True}
 $$(2)$$
 P\rightarrow P\\
+P\rightarrow P\vee X\\
+P\rightarrow X\vee P\\
 P\leftrightarrow P\\
 \neg\neg P\leftrightarrow P
 $$
@@ -380,6 +382,16 @@ $$
 |-|-|-|
 |$1$|$P\rightarrow P$|引入已证永真式|
 |$2$|$P\leftrightarrow P$|对(1)(1)使用**公理2.8**|
+
+证:$ P\rightarrow P\vee X$
+|编号|公式|原因|
+|-|-|-|
+|$1$|$P$|假设|
+|$2$|$P\vee X$|对(1)使用**公理2.6**|
+|$3$|$\{P\}\vdash P\vee X$|总结(1)到(2)|
+|$4$|$P\rightarrow P\vee X$|对(3)使用**公理2.11**|
+
+$ P\rightarrow X\vee P$的证明过程与上面类似，读者可以自己尝试。
 
 证:$\neg\neg P\leftrightarrow P$
 |编号|公式|原因|
@@ -491,8 +503,81 @@ $$&emsp;&emsp;同蕴涵一样，等价也可以被“且”“或”“非”表
 P \leftrightarrow Q = \neg P \leftrightarrow \neg Q 
 $$&emsp;&emsp;两个命题等价，那么取反后依旧相互等价。  
 
-接下来将是一段篇幅巨长的证明。
-//todu
+&emsp;&emsp;接下来我们将对上面的等价公式逐个证明。方便起见，我适当的调整了证明时的顺序，这样可以方便使用已经证明过的式子帮助完成其他证明。同时，由于我们需要证的永真式多为等价式，即“双箭头”，需要证明两个方向都能互推，所以在两个方向证明过程相似的情况下我们只给出一个方向的证明。
+&emsp;**证明:**
+&emsp;&emsp;(1)和(2)可以由**定理2.2**立马得到。
+&emsp;&emsp;(3)接下来我们先证明析取和合取的结合律，等价的结合律后续再进行证明。
+&emsp;&emsp;要证$(P\vee Q)\vee R = P\vee (Q\vee R)$只需证$(P\vee Q)\vee R \leftrightarrow P\vee (Q\vee R)$为真。
+|编号|公式|原因|
+|-|-|-|
+|$1$|$(P\vee Q)\vee R$|假设|
+|$2$|$P\rightarrow P\vee (Q\vee R)$|引入已证永真式(将$Q\vee  R$看作一个整体)|
+|$3$|$(Q\vee R)\rightarrow P \vee (Q\vee  R)$|引入已证永真式(将$Q\vee  R$看作一个整体)|
+|$4$|$Q$|假设|
+|$5$|$Q\vee R$|对(4)使用**公理2.6**|
+|$6$|$P \vee (Q\vee  R)$|对(3)(5)使用**公理2.10**|
+|$7$|$Q\rightarrow P \vee (Q\vee  R)$|总结(4)到(6)后使用**公理2.11**|
+|$8$|$R$|假设|
+|$9$|$Q\vee R$|对(8)使用**公理2.6**|
+|$10$|$P \vee (Q\vee  R)$|对(3)(9)使用**公理2.10**|
+|$11$|$R\rightarrow P \vee (Q\vee  R)$|总结(8)到(10)后使用**公理2.11**|
+|$12$|$P\vee Q$|假设|
+|$13$|$P \vee (Q\vee  R)$|对(2)(7)(12)使用**公理2.7**|
+|$14$|$(P\vee Q)\rightarrow P \vee (Q\vee  R)$|总结(12)到(13)后使用**公理2.11**|
+|$15$|$P \vee (Q\vee  R)$|对(1)(11)(14)使用**公理2.7**|
+|$16$|$(P\vee Q)\vee R\rightarrow P \vee (Q\vee  R)$|总结(1)到(15)后使用**公理2.11**|
+|...|可以类似地证明$P \vee (Q\vee  R)\rightarrow (P\vee Q)\vee R$|中间过程类似，省略|
+|...|$P \vee (Q\vee  R)\leftrightarrow (P\vee Q)\vee R$|对两个方向使用**公理2.8**|
+
+&emsp;&emsp;要证$(P\wedge Q)\wedge R = P\wedge (Q\wedge R)$只需证$(P\wedge Q)\wedge R \leftrightarrow P\wedge (Q\wedge R)$为真。
+
+|编号|公式|原因|
+|-|-|-|
+|$1$|$(P\wedge Q)\wedge R$|假设|
+|$2$|$(P\wedge Q)$|对(1)使用**公理2.5**|
+|$3$|$R$|对(1)使用**公理2.5**|
+|$4$|$P$|对(2)使用**公理2.5**|
+|$5$|$Q$|对(2)使用**公理2.5**|
+|$6$|$Q\wedge R$|对(3)(5)使用**公理2.4**|
+|$7$|$P\wedge (Q\wedge R)$|对(4)(6)使用**公理2.4**|
+|$8$|$(P\wedge Q)\wedge R\rightarrow P\wedge (Q\wedge R)$|总结(1)到(7)后使用**公理2.11**|
+|...|$P\wedge (Q\wedge R)\rightarrow (P\wedge Q)\wedge R$|另一个方向类似，省略|
+|...|$(P\wedge Q)\wedge R\leftrightarrow P\wedge (Q\wedge R)$|对两个方向使用**公理2.8**|
+
+&emsp;&emsp;(4)下面我们来证交换律
+&emsp;&emsp;先证$P\vee Q = Q\vee P$
+|编号|公式|原因|
+|-|-|-|
+|$1$|$P\vee Q$|假设|
+|$2$|$P\rightarrow Q\vee P$|引入已证永真式|
+|$3$|$Q\rightarrow Q\vee P$|引入已证永真式|
+|$4$|$Q\vee P$|对(1)(2)(3)使用**公理2.7**|
+|$5$|$P\vee Q\rightarrow Q\vee P$|总结(1)到(4)后使用**公理2.11**|
+|...|$Q\vee P\rightarrow P\vee Q$|另一个方向类似，省略|
+|...|$P\vee Q\leftrightarrow Q\vee P$|对两个方向使用**公理2.8**|
+
+&emsp;&emsp;接下来证$P\wedge Q = Q\wedge P$
+|编号|公式|原因|
+|-|-|-|
+|$1$|$P\wedge Q$|假设|
+|$2$|$P$|对(1)使用**公理2.5**|
+|$3$|$Q$|对(1)使用**公理2.5**|
+|$4$|$Q\wedge P$|对(2)(3)使用**公理2.4**|
+|$5$|$P\wedge Q \rightarrow Q\wedge P$|总结(1)到(4)后使用**公理2.11**|
+|...|$Q\wedge P \rightarrow P\wedge Q $|另一个方向类似，省略|
+|...|$P\wedge Q \leftrightarrow Q\wedge P$|对两个方向使用**公理2.8**|
+
+&emsp;&emsp;接下来证$P\leftrightarrow Q = Q\leftrightarrow P$
+|编号|公式|原因|
+|-|-|-|
+|$1$|$P\leftrightarrow Q$|假设|
+|$2$|$P\rightarrow Q$|对(1)使用**公理2.9**|
+|$3$|$Q\rightarrow P$|对(1)使用**公理2.9**|
+|$4$|$Q\leftrightarrow P$|对(2)(3)使用**公理2.8**|
+|$5$|$P\leftrightarrow Q\rightarrow Q\leftrightarrow P$|总结(1)到(4)后使用**公理2.11**|
+|...|$Q\leftrightarrow P\rightarrow P\leftrightarrow Q$|另一个方向类似，省略|
+|...|$(P\leftrightarrow Q)\leftrightarrow (Q\leftrightarrow P)$|对两个方向使用**公理2.8**|
+
 
 #### 2.1.6 命题的证明
 
