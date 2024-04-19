@@ -533,6 +533,30 @@ $$&emsp;&emsp;两个命题等价，那么取反后依旧相互等价。
 |$3$|$P\wedge P \leftrightarrow P$|对(3)(6)使用**公理2.8**|
 
 &emsp;&emsp;(7)继续证相对简单的等价公式，证吸收律。
+&emsp;&emsp;证：$P\vee (P\wedge Q) = P$
+|编号|公式|原因|
+|-|-|-|
+|$1$|$P\vee (P\wedge Q)$|假设|
+|$2$|$P\rightarrow P$|引入已证永真式|
+|$3$|$P\wedge Q$|假设|
+|$4$|$P$|对(3)合取消除|
+|$5$|$P\wedge Q \rightarrow P$|总结(3)到(4)后条件介入|
+|$6$|$P$|对(1)(2)(5)析取消除|
+|$7$|$P\vee (P\wedge Q)\rightarrow P$|总结(1)到(6)后条件介入|
+|$8$|$P\rightarrow P\vee (P\wedge Q)$|引入已证永真式(P\wedge Q)看作一个整体|
+|$9$|$P\vee (P\wedge Q)\leftrightarrow P$|对(7)(8)等价介入|
+
+&emsp;&emsp;证：$P\wedge (P\vee Q) = P$
+|编号|公式|原因|
+|-|-|-|
+|$1$|$P\wedge (P\vee Q)$|假设|
+|$2$|$P$|对(1)合取消除|
+|$3$|$P\wedge (P\vee Q)\rightarrow P$|总结(1)(2)后条件介入|
+|$4$|$P$|假设|
+|$5$|$P\vee Q$|对(4)析取介入|
+|$6$|$P\wedge (P\vee Q)$|对(4)(5)合取介入|
+|$7$|$P\rightarrow P\wedge (P\vee Q)$|总结(4)到(6)后条件介入|
+|$8$|$P\wedge (P\vee Q)\leftrightarrow P$|对(3)(7)等价介入|
 
 
 &emsp;&emsp;(3)接下来我们先证明析取和合取的结合律，等价的结合律后续再进行证明。
