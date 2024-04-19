@@ -510,6 +510,31 @@ $$&emsp;&emsp;两个命题等价，那么取反后依旧相互等价。
 &emsp;&emsp;接下来我们将对上面的等价公式逐个证明。方便起见，我适当的调整了证明时的顺序，这样可以方便使用已经证明过的式子帮助完成其他证明。同时，由于我们需要证的永真式多为等价式，即“双箭头”，需要证明两个方向都能互推，所以在两个方向证明过程相似的情况下我们只给出一个方向的证明。
 &emsp;**证明:**
 &emsp;&emsp;(1)和(2)可以由**定理2.2**立马得到。
+&emsp;&emsp;(6)我们从简单的证起，先证幂等律。
+&emsp;&emsp;证$P\vee P = P$
+|编号|公式|原因|
+|-|-|-|
+|$1$|$P\vee P$|假设|
+|$2$|$P\rightarrow P$|引入已证永真式|
+|$3$|$P$|对(1)(2)(2)使用**公理2.5**|
+|$4$|$P\vee P \rightarrow P$|总结(1)到(3)后使用公理**2.11**|
+|$5$|$P\rightarrow P\vee P$|引入已证永真式(用$P$替换原式$X$)|
+|$6$|$P\vee P\leftrightarrow P$|对(4)(5)使用**公理2.8**|
+
+&emsp;&emsp;证$P\wedge P = P$
+|编号|公式|原因|
+|-|-|-|
+|$1$|$P\wedge P$|假设|
+|$2$|$P$|对(1)使用**公理2.5**|
+|$3$|$P\wedge P \rightarrow P$|总结(1)到(2)后使用**公理2.11**|
+|$4$|$P$|假设|
+|$5$|$P\wedge P$|对(4)和(4)使用**公理2.4**|
+|$6$|$P \rightarrow P\wedge P$|总结(4)到(5)后使用**公理2.11**|
+|$3$|$P\wedge P \leftrightarrow P$|对(3)(6)使用**公理2.8**|
+
+&emsp;&emsp;(7)继续证相对简单的等价公式，证吸收律。
+
+
 &emsp;&emsp;(3)接下来我们先证明析取和合取的结合律，等价的结合律后续再进行证明。
 &emsp;&emsp;要证$(P\vee Q)\vee R = P\vee (Q\vee R)$只需证$(P\vee Q)\vee R \leftrightarrow P\vee (Q\vee R)$为真。
 |编号|公式|原因|
@@ -582,6 +607,43 @@ $$&emsp;&emsp;两个命题等价，那么取反后依旧相互等价。
 |...|$Q\leftrightarrow P\rightarrow P\leftrightarrow Q$|另一个方向类似，省略|
 |...|$(P\leftrightarrow Q)\leftrightarrow (Q\leftrightarrow P)$|对两个方向使用**公理2.8**|
 
+&emsp;&emsp;(5)下面我们来证分配律。我们先证两条左分配律，而后通过之前已经证明了的交换律来继续证明右分配律。
+
+&emsp;&emsp;证$P\wedge(Q\vee R) = (P\wedge Q)\vee (P\wedge R)$
+|编号|公式|原因|
+|-|-|-|
+|$1$|$P\wedge(Q\vee R)$|假设|
+|$2$|$P$|对(1)合取消除|
+|$3$|$Q\vee R$|对(1)合取消除|
+|$4$|$Q$|假设|
+|$5$|$P\wedge Q$|对(2)(4)合取介入|
+|$6$|$(P\wedge Q)\vee(P\wedge R)$|对(5)析取介入|
+|$7$|$Q\rightarrow(P\wedge Q)\vee(P\wedge R)$|总结(4)到(6)后条件介入|
+|$8$|$R$|假设|
+|$9$|$P\wedge R$|对(2)(8)合取介入|
+|$10$|$(P\wedge Q)\vee(P\wedge R)$|对(9)析取介入|
+|$11$|$R\rightarrow(P\wedge Q)\vee(P\wedge R)$|总结(8)到(10)后条件介入|
+|$12$|$(P\wedge Q)\vee(P\wedge R)$|对(3)(7)(11)析取消除|
+|$13$|$P\wedge(Q\vee R)\rightarrow (P\wedge Q)\vee(P\wedge R)$|总结(1)到(12)后条件介入|
+|$14$|$(P\wedge Q)\vee(P\wedge R)$|假设|
+|$15$|$P\wedge Q$|假设|
+|$16$|$P$|对(15)合取消除|
+|$17$|$Q$|对(15)合取消除|
+|$18$|$Q\vee R$|对(17)析取介入|
+|$19$|$P\wedge(Q\vee R)$|对(16)(18)合取介入|
+|$20$|$P\wedge Q \rightarrow P\wedge(Q\vee R)$|总结(15)到(19)后条件介入|
+|$21$|$P\wedge R$|假设|
+|$22$|$P$|对(21)合取消除|
+|$23$|$R$|对(21)合取消除|
+|$24$|$Q\vee R$|对(23)析取介入|
+|$25$|$P\wedge(Q\vee R)$|对(22)(24)合取介入|
+|$26$|$P\wedge R \rightarrow P\wedge(Q\vee R)$|总结(21)到(25)后条件介入|
+|$27$|$P\wedge(Q\vee R)$|对(14)(20)(26)析取消除|
+|$28$|$(P\wedge Q)\vee(P\wedge R)\rightarrow P\wedge(Q\vee R)$|总结(14)到(27)后条件介入|
+|$29$|$P\wedge(Q\vee R) \leftrightarrow (P\wedge Q)\vee(P\wedge R) $|对(13)和(28)等价介入|
+
+&emsp;&emsp;接下来证$P\vee(Q\wedge R) = (P\vee Q)\wedge (P\vee R)$
+&emsp;&emsp;这次我们将使用带入定理、替换定理以及等价公式的性质，来完成一个风格不同于原来基于公理的证明，这看起来更像是运算。
 
 #### 2.1.6 命题的证明
 
