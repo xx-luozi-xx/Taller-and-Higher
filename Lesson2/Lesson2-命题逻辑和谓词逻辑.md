@@ -558,8 +558,33 @@ $$&emsp;&emsp;两个命题等价，那么取反后依旧相互等价。
 |$7$|$P\rightarrow P\wedge (P\vee Q)$|总结(4)到(6)后条件介入|
 |$8$|$P\wedge (P\vee Q)\leftrightarrow P$|对(3)(7)等价介入|
 
+&emsp;&emsp;(9)接下来我们证单位律，这也是比较简单的证明。
+&emsp;&emsp;证：$P\vee \text{False} = P$
+|编号|公式|原因|
+|-|-|-|
+|$1$|$P\vee \text{False}$|假设|
+|$2$|$\text{False}$|假设|
+|$3$|$P$|对(2)析取消除|
+|$4$|$\text{False}\rightarrow P$|总结(2)到(3)后|
+|$5$|$P\rightarrow P$|引入已证永真式|
+|$6$|$P$|对(1)(4)(5)析取消去|
+|$7$|$P\vee \text{False}\rightarrow P$|总结(1)到(6)后条件介入|
+|$8$|$P\rightarrow P\vee \text{False}$|引入已证永真式($\text{False}$替换$X$)|
+|$9$|$P\vee \text{False}\leftrightarrow P$|对(7)(8)等价介入|
 
-&emsp;&emsp;(3)接下来我们先证明析取和合取的结合律，等价的结合律后续再进行证明。
+&emsp;&emsp;证：$P\wedge \text{True} = P$
+|编号|公式|原因|
+|-|-|-|
+|$1$|$P\wedge \text{True}$|假设| 
+|$2$|$P$|对(1)合取消除| 
+|$3$|$P\wedge \text{True}\rightarrow P$|总结(1)到(2)后条件介入| 
+|$4$|$P$|假设| 
+|$5$|$\text{True}$|合取介入| 
+|$6$|$P\wedge \text{True}$|对(4)(5)合取介入| 
+|$7$|$P\rightarrow P\wedge\text{True}$|总结(4)到(6)后条件介入| 
+|$8$|$P\wedge \text{True}\leftrightarrow P$|对(3)(7)等价介入| 
+
+&emsp;&emsp;(3)接下来我们证明析取和合取的结合律，不过把等价的结合律后续再进行证明。
 &emsp;&emsp;要证$(P\vee Q)\vee R = P\vee (Q\vee R)$只需证$(P\vee Q)\vee R \leftrightarrow P\vee (Q\vee R)$为真。
 |编号|公式|原因|
 |-|-|-|
